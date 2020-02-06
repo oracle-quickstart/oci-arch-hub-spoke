@@ -6,3 +6,5 @@
 *.tfstate.*
 *.zip*
 *.tfvars
+*.bak
+.DS_Store
