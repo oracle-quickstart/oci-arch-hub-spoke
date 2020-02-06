@@ -1,28 +1,21 @@
-# oci-quickstart-template
+# Hub-spoke VCN deployable architecture
 
-The [Oracle Cloud Infrastructure (OCI) Quick Start](https://github.com/oracle-quickstart?q=oci-quickstart) is a collection of examples that allow Oracle Cloud Infrastructure users to get a quick start deploying advanced infrastructure on OCI.
-
-The oci-quickstart-template repository contains the template that can be used for accelerating the construction of quickstarts that runs from local Terraform CLI and OCI Resource Manager.
-
-Simple is a sample application that deploys a standalone virtual machine from the Oracle Cloud Infrastructure Marketplace.
-
-This repo is under active development.  Building open source software is a community effort.  We're excited to engage with the community building this.
-
-## How this project is organized
-
-Each application is stored on its own top level folder.
-
-Within the simple application project there are 3 modules:
-
-- [simple-cli](simple-cli): launch a simple VM that subscribes to a Marketplace Image running from Terraform CLI.
-- [simple-orm](simple-orm): Responsible for packaging the simple-cli module in OCI [Resource Manager Stack](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm) format.
-- [terraform-modules](terraform-modules): contains a list of re-usable terraform modules for managing infrastructure resources like vcn, subnets, security, etc.
+A simple way to deploy a hub-spoke architectuere in Oracle Cloud Infrastructure
 
 ## Prerequisites
 
-First off we'll need to do some pre deploy setup.  That's all detailed [here](https://github.com/oracle/oci-quickstart-prerequisites).
+- You need an Oracle cloud account. Sign up here to create a free trial on OCI - [OCI free trial link](https://www.oracle.com/cloud/free/)
+
+- Terraform — use the link to download terraform. Choose the operating systems you plan to work on - [Terraform download](https://www.terraform.io/downloads.html)
+
+- Follow the steps in the video link to install terrafor - [Install Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html)
+
+(Note that, for linux and mac steps are similar except the file to be edited shown in the video link is — profile for linux and bash_profile for mac)
+
+Verify terraform is installed successfully using below command.
+
+`terraform --version`
 
 ## Deploying Simple
 
-Detailed instructions for deploying Simple on Oracle Cloud Infrastructure can be found in the [simple](./simple/README.md) space.
 
