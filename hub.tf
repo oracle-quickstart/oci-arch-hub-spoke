@@ -31,10 +31,8 @@ resource "oci_core_internet_gateway" "hub_internet_gateway" {
 
 
 #Default route table hub
-resource "oci_core_route_table" "hub_default_route_table" {
-    compartment_id = var.compartment_ocid
-    vcn_id = oci_core_vcn.hub.id
-    display_name = "Hub default route table"
+resource "oci_core_default_route_table" "hub_default_route_table" {
+    manage_default_resource_id = oci_core_vcn.hub.default_route_table_id
     route_rules {
         network_entity_id = oci_core_internet_gateway.hub_internet_gateway.id
         destination       = "0.0.0.0/0"

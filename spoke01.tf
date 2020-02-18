@@ -12,10 +12,8 @@ resource "oci_core_local_peering_gateway" "spoke01_hub_local_peering_gateway" {
 }
 
 #Default route table spoke01
-resource "oci_core_route_table" "spoke01_default_route_table" {
-    compartment_id = var.compartment_ocid
-    vcn_id = oci_core_vcn.spoke01.id
-    display_name = "spoke01 default route table"
+resource "oci_core_default_route_table" "spoke01_default_route_table" {
+    manage_default_resource_id = oci_core_vcn.spoke01.default_route_table_id
     route_rules {
         network_entity_id = oci_core_local_peering_gateway.spoke01_hub_local_peering_gateway.id
         destination       = "0.0.0.0/0"

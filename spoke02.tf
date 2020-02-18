@@ -11,7 +11,15 @@ resource "oci_core_local_peering_gateway" "spoke02_hub_local_peering_gateway" {
     vcn_id = oci_core_vcn.spoke02.id
     display_name = "spoke02_hub_lpg"
 }
-
+#Default route table spoke02
+resource "oci_core_default_route_table" "spoke02_default_route_table" {
+    manage_default_resource_id = oci_core_vcn.spoke02.default_route_table_id
+    route_rules {
+        network_entity_id = oci_core_local_peering_gateway.spoke02_hub_local_peering_gateway.id
+        destination       = "0.0.0.0/0"
+        destination_type  = "CIDR_BLOCK"
+    }
+}
 resource "oci_core_subnet" "spoke02_subnet_pub01" {
     cidr_block = "10.20.10.0/24"
     compartment_id = var.compartment_ocid

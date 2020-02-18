@@ -37,3 +37,19 @@ output "default_AD" {
 output "default_region" {
   value = var.region
 }
+
+data "oci_marketplace_listings" "test_listings" {
+
+    # #Optional
+    # category = "${var.listing_category}"
+    # is_featured = "${var.listing_is_featured}"
+    # listing_id = "${oci_marketplace_listing.test_listing.id}"
+    # name = "${var.listing_name}"
+    # package_type = "${var.listing_package_type}"
+    # pricing = "${var.listing_pricing}"
+    # publisher_id = "${oci_marketplace_publisher.test_publisher.id}"
+}
+
+output "listing" {
+  
+}
