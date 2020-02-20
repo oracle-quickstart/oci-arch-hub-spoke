@@ -1,3 +1,6 @@
+## Copyright © 2020, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+
 resource "oci_core_vcn" "hub" {
   cidr_block     = "10.0.0.0/16"
   dns_label      = "hub"
@@ -12,23 +15,6 @@ resource "oci_core_internet_gateway" "hub_internet_gateway" {
     enabled = "true"
     display_name = "IGW_HUB"
 }
-
-#DRG
-# resource "oci_core_drg" "hub_drg" {
-#     compartment_id = var.compartment_ocid
-#     display_name = "HUB_DRG"
-# }
-
-# resource "oci_core_drg_attachment" "hub_drg_attachment" {
-#     #Required
-#     drg_id = oci_core_drg.hub_drg.id
-#     vcn_id = oci_core_vcn.hub.id
-
-#     #Optional
-#     # display_name = "${var.drg_attachment_display_name}"
-#     # route_table_id = "${oci_core_route_table.test_route_table.id}"
-# }
-
 
 #Default route table hub
 resource "oci_core_route_table" "hub_default_route_table" {
@@ -78,7 +64,7 @@ resource "oci_core_subnet" "hub_subnet_pub01" {
 
 resource "oci_core_instance" "bastion_instance" {
   # count = var.NumInstances
-  availability_domain = data.oci_identity_availability_domain.default_AD.name
+  availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[1]["name"]
   compartment_id = var.compartment_ocid
   display_name = "BastionVM"
   shape = var.InstanceShape
@@ -90,13 +76,13 @@ resource "oci_core_instance" "bastion_instance" {
   }
 
   source_details {
-    source_type = "image"
-    source_id = var.InstanceImageOCID[var.region]
-
+    source_type             = "image"
+    source_id               = data.oci_core_images.InstanceImageOCID.images[0].id
+    boot_volume_size_in_gbs = "50"
   }
 
   metadata = {
-    ssh_authorized_keys = var.ssh_public_key
+    ssh_authorized_keys = chomp(file(var.ssh_public_key))
   
   }
   # timeouts {

@@ -1,3 +1,6 @@
+## Copyright © 2020, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+
 variable "region" {}
 variable "private_key_path" {}
 variable "ssh_public_key" {}
@@ -42,16 +45,17 @@ variable "subnet_id" {
   default = ""
 }
 
-variable "InstanceImageOCID" {
-    type = map(string)
-    default = {
-        // See https://docs.cloud.oracle.com/images/
-        // Oracle-provided image "Oracle-Autonomous-Linux-7.7-2020.01-0"
-        us-ashburn-1 = "ocid1.image.oc1.iad.aaaaaaaasrjyeax4sznb3jxnamxrjpgiw2ked3isrmj6ktu44uso4mln7dua"
-        us-phoenix-1 = "ocid1.image.oc1.phx.aaaaaaaaioy3pwjguhyxmp7gmfp534hmz27o7yfdt4b23qgs7ypr52k3zk5q"
-    }
+
+# OS Images
+variable "instance_os" {
+  description = "Operating system for compute instances"
+  default     = "Oracle Linux"
 }
 
+variable "linux_os_version" {
+  description = "Operating system version for all Linux instances"
+  default     = "7.7"
+}
 
 # Defines the number of instances to deploy
 variable "NumInstances" {
@@ -59,5 +63,5 @@ variable "NumInstances" {
 }
 
 variable "InstanceShape" {
-    default = "VM.Standard.E2.1"
+    default = "VM.Standard2.1"
 }
