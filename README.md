@@ -1,4 +1,4 @@
-# Set up a hub-and-spoke network topology
+# oci-arch-hub-spoke
 
 The hub-spoke topology (often called star topology) has a central component (the hub) that's connected to multiple networks around it, like a wheel. Implementing this topology in the traditional data center can be costly. But in the cloud, there’s no extra cost.
 
