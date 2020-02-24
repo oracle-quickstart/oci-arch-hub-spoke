@@ -1,3 +1,6 @@
+## Copyright © 2020, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+
 resource "oci_core_vcn" "spoke01" {
   cidr_block     = "10.10.0.0/16"
   dns_label      = "spoke01"
@@ -33,7 +36,7 @@ output "vcn_id_spoke01" {
 
 resource "oci_core_instance" "spoke01_test_instance" {
   # count = var.NumInstances
-  availability_domain = data.oci_identity_availability_domain.default_AD.name
+  availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]
   compartment_id = var.compartment_ocid
   display_name = "spoke01_test_instance"
   shape = var.InstanceShape
@@ -45,13 +48,13 @@ resource "oci_core_instance" "spoke01_test_instance" {
   }
 
   source_details {
-    source_type = "image"
-    source_id = var.InstanceImageOCID[var.region]
-
+    source_type             = "image"
+    source_id               = data.oci_core_images.InstanceImageOCID.images[0].id
+    boot_volume_size_in_gbs = "50"
   }
 
   metadata = {
-    ssh_authorized_keys = var.ssh_public_key
+    ssh_authorized_keys = chomp(file(var.ssh_public_key))
   
   }
   # timeouts {
