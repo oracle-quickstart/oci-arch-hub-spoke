@@ -2,10 +2,10 @@
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
 resource "oci_core_vcn" "hub" {
-  cidr_block     = "10.0.0.0/16"
-  dns_label      = "hub"
+  cidr_block     = var.hub_vcn_cidr_block
+  dns_label      = var.hub_vcn_dns_label
   compartment_id = var.compartment_ocid
-  display_name   = "hub"
+  display_name   = var.hub_vcn_display_name
 }
 
 #IGW
@@ -26,12 +26,12 @@ resource "oci_core_default_route_table" "hub_default_route_table" {
     }
     route_rules {
         network_entity_id = oci_core_local_peering_gateway.hub_spoke01_local_peering_gateway.id
-        destination       = "10.10.0.0/16"
+        destination       = var.spoke01_vcn_cidr_block
         destination_type  = "CIDR_BLOCK"
     }
     route_rules {
         network_entity_id = oci_core_local_peering_gateway.hub_spoke02_local_peering_gateway.id
-        destination       = "10.20.0.0/16"
+        destination       = var.spoke02_vcn_cidr_block
         destination_type  = "CIDR_BLOCK"
     }
 }
@@ -52,16 +52,15 @@ resource "oci_core_local_peering_gateway" "hub_spoke02_local_peering_gateway" {
 }
 #Hub pub subnet
 resource "oci_core_subnet" "hub_subnet_pub01" {
-    cidr_block = "10.0.10.0/24"
+    cidr_block = var.hub_subnet_pub01_cidr_block
     compartment_id = var.compartment_ocid
     vcn_id = oci_core_vcn.hub.id
-    display_name = "hub_subnet_pub01"
+    display_name = var.hub_subnet_pub01_display_name
 }
 
 # Bastion VM
 
 resource "oci_core_instance" "bastion_instance" {
-  # count = var.NumInstances
   availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[1]["name"]
   compartment_id = var.compartment_ocid
   display_name = "BastionVM"
@@ -80,8 +79,7 @@ resource "oci_core_instance" "bastion_instance" {
   }
 
   metadata = {
-    ssh_authorized_keys = chomp(file(var.ssh_public_key))
-  
+    ssh_authorized_keys = var.ssh_public_key
   }
   # timeouts {
   #   create = "60m"
