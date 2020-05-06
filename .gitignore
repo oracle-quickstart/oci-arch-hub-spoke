@@ -9,4 +9,3 @@
 *.bak
 .DS_Store
 output.tf
-*.zip
