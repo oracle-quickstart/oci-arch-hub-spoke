@@ -4,8 +4,9 @@
 variable "region" {
   default = "us-phoenix-1"
 }
-# variable "fingerprint" {}
-# variable "user_ocid" {}
+variable "fingerprint" {}
+variable "user_ocid" {}
+variable "private_key_path" {}
 variable "tenancy_ocid" {
   default = ""
 }
