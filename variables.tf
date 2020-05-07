@@ -1,12 +1,27 @@
 ## Copyright © 2020, Oracle and/or its affiliates. 
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
-variable "region" {}
-# variable "fingerprint" {}
-# variable "user_ocid" {}
-variable "tenancy_ocid" {}
-variable "compartment_ocid" {}
-variable "ssh_public_key" {}
+variable "region" {
+  default = "us-phoenix-1"
+}
+variable "fingerprint" {
+  default = ""
+  }
+variable "user_ocid" {
+  default = ""
+  }
+variable "private_key_path" {
+  default = ""
+  }
+variable "tenancy_ocid" {
+  default = ""
+}
+variable "compartment_ocid" {
+  default = ""
+}
+variable "ssh_public_key" {
+  default = ""
+}
 
 variable "igw_display_name" {
   default = "internet-gateway"
