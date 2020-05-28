@@ -43,12 +43,6 @@
       - instance_os
       - linux_os_version
       - InstanceShape
-      
-
-    - title: Required Configuration
-      visible: false  
-      variables:
-      - NumInstances
     
     variables:
 
@@ -68,125 +62,101 @@
       ssh_public_key:
         type: string
         required: true
-        title: 
-        description:
+        title: SSH public key
+        description: Public key that will be used to SSH into the test instances
 
       igw_display_name:
         type: string
         required: true
-        title: 
-        description:
+        title: IGW Name
+        description: Display name of the Internet Gateway from the HUB VCN
 
       hub_vcn_cidr_block:
         type: string
         required: true
-        title: 
-        description:
+        title: HUB VCN CIDR Block
+        description: CIDR block that will be assigned to the HUB VCN
 
       hub_vcn_dns_label:
         type: string
         required: true
-        title: 
-        description:
+        title: DNS Label HUB VCN
+        description: DNS label that will be asigned to the HUB VCN
 
       hub_vcn_display_name:
         type: string
         required: true
-        title: 
-        description:
+        title: VNC Name
+        description: Display name assigned to the HUB VCN
 
       hub_subnet_pub01_cidr_block:
         type: string
         required: true
-        title: 
-        description:
+        title: PUB Subnet CIDR Block
+        description: CIDR block that will be assigned to the Public Subnet in the HUB VCN
 
       hub_subnet_pub01_display_name:
         type: string
         required: true
-        title: 
-        description:
+        title: PUB Subnet Display Name  
+        description: Display name assigned to the Public subnet in the HUB VCN
 
       spoke01_vcn_cidr_block:
         type: string
         required: true
-        title: 
-        description:
+        title: Spoke 1 VCN CIDR Block
+        description: CIDR block that will be assigned to the Spoke 1 VCN
 
       spoke01_vcn_dns_label:
         type: string
         required: true
-        title: 
-        description:
+        title: DNS Label SPOKE 1 VCN
+        description: DNS label that will be asigned to the SPOKE 1 VCN
 
       spoke01_vcn_display_name:
         type: string
         required: true
-        title: 
-        description:
+        title: SPOKE 1 VCN Display Name
+        description: Display name assigned to the Spoke 1 VCN
 
       spoke01_subnet_priv01_cidr_block:
         type: string
         required: true
-        title: 
-        description:
+        title: Private Subnet CIDR Block on Spoke 1
+        description: CIDR block that will be assigned to the Private Subnet in the Spoke 1 VCN
 
       spoke01_subnet_priv01_display_name:
         type: string
         required: true
-        title: 
-        description:
+        title: Private Subnet Display Name
+        description: Display name assigned to the private subnet in the Spoke 1 VCN
 
       spoke02_vcn_cidr_block:
         type: string
         required: true
-        title: 
-        description:
+        title: Spoke 2 VCN CIDR Block
+        description: CIDR block that will be assigned to the Spoke 1 VCN
 
       spoke02_vcn_dns_label:
         type: string
         required: true
-        title: 
-        description:
+        title: DNS Label SPOKE 2 VCN
+        description: DNS label that will be asigned to the SPOKE 2 VCN
 
       spoke02_vcn_display_name:
         type: string
         required: true
-        title: 
-        description:
-        
-    spoke02_subnet_priv01_cidr_block:
-        type: string
-        required: true
-        title: 
-        description:
-        
-    spoke02_subnet_priv01_display_name:
-        type: string
-        required: true
-        title: 
-        description:
-        
-    instance_os:
-        type: string
-        required: true
-        title: 
-        description:
+        title: SPOKE 2 VCN Display Name
+        description: Display name assigned to the Spoke 2 VCN
 
-    linux_os_version:
+      spoke02_subnet_priv01_cidr_block:
         type: string
         required: true
-        title: 
-        description:
+        title: Private Subnet CIDR Block on Spoke 2
+        description: CIDR block that will be assigned to the Private Subnet in the Spoke 2 VCN
 
-    NumInstances:
+      spoke02_subnet_priv01_display_name:
         type: string
         required: true
-        title: 
-        description:
-        
-    InstanceShape:
-        type: string
-        required: true
-        title: 
-        description:
+        title: Private Subnet Display Name
+        description: Display name assigned to the private subnet in the Spoke 2 VCN
