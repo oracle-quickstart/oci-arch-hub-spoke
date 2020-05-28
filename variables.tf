@@ -66,15 +66,6 @@ variable "spoke02_subnet_priv01_display_name" {
   default = "spoke02_subnet_priv01"
 }
 
-variable "use_existing_network" {
-  type = bool
-  default = false
-}
-
-
-
-
-
 # OS Images
 variable "instance_os" {
   description = "Operating system for compute instances"
@@ -84,11 +75,6 @@ variable "instance_os" {
 variable "linux_os_version" {
   description = "Operating system version for all Linux instances"
   default     = "7.7"
-}
-
-# Defines the number of instances to deploy
-variable "NumInstances" {
-    default = "1"
 }
 
 variable "InstanceShape" {

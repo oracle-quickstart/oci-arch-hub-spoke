@@ -35,7 +35,6 @@ output "vcn_id_spoke02" {
 }
 
 resource "oci_core_instance" "spoke02_test_instance" {
-  # count = var.NumInstances
   availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]
   compartment_id = var.compartment_ocid
   display_name = "spoke02_test_instance"
@@ -55,8 +54,6 @@ resource "oci_core_instance" "spoke02_test_instance" {
 
   metadata = {
     ssh_authorized_keys = var.ssh_public_key
-    # ssh_authorized_keys = chomp(file(var.ssh_public_key))
-  
   }
   # timeouts {
   #   create = "60m"
