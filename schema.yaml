@@ -1,0 +1,192 @@
+## Copyright © 2020, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+
+    title: "Create a HUB-spoke network in Oracle Cloud Infrastructure"
+    stackDescription: Deploy a HUB-spoke network in Oracle Cloud Infrastructure
+    schemaVersion: 1.0.0
+    version: "202005281025"
+    locale: "en"
+
+    variableGroups:
+    - title: General Configuration
+      visible: false
+      variables:
+      - compartment_ocid
+      - tenancy_ocid
+      - region
+
+    - title: Required Configuration
+      visible: true  
+      variables:
+      - ssh_public_key
+      - igw_display_name
+      - hub_vcn_display_name
+      - hub_vcn_cidr_block
+      - hub_vcn_dns_label
+      - hub_subnet_pub01_display_name
+      - hub_subnet_pub01_cidr_block
+      - spoke01_vcn_display_name
+      - spoke01_vcn_cidr_block
+      - spoke01_vcn_dns_label
+      - spoke01_subnet_priv01_display_name
+      - spoke01_subnet_priv01_cidr_block
+      - spoke02_vcn_display_name
+      - spoke02_vcn_dns_label
+      - spoke02_vcn_cidr_block
+      - spoke02_subnet_priv01_display_name
+      - spoke02_subnet_priv01_cidr_block
+      
+
+    - title: Optional Configuration
+      visible: true
+      variables:      
+      - instance_os
+      - linux_os_version
+      - InstanceShape
+      
+
+    - title: Required Configuration
+      visible: false  
+      variables:
+      - NumInstances
+    
+    variables:
+
+      compartment_ocid:
+        type: oci:identity:compartment:id
+        # type: string
+        required: true
+        title: Compartment
+        description: Compartment where you want to create the solution resources
+
+      region:
+        type: oci:identity:region:name
+        required: true
+        title: Region
+        description: Region where you want to deploy the resources defined by this stack
+
+      ssh_public_key:
+        type: string
+        required: true
+        title: 
+        description:
+
+      igw_display_name:
+        type: string
+        required: true
+        title: 
+        description:
+
+      hub_vcn_cidr_block:
+        type: string
+        required: true
+        title: 
+        description:
+
+      hub_vcn_dns_label:
+        type: string
+        required: true
+        title: 
+        description:
+
+      hub_vcn_display_name:
+        type: string
+        required: true
+        title: 
+        description:
+
+      hub_subnet_pub01_cidr_block:
+        type: string
+        required: true
+        title: 
+        description:
+
+      hub_subnet_pub01_display_name:
+        type: string
+        required: true
+        title: 
+        description:
+
+      spoke01_vcn_cidr_block:
+        type: string
+        required: true
+        title: 
+        description:
+
+      spoke01_vcn_dns_label:
+        type: string
+        required: true
+        title: 
+        description:
+
+      spoke01_vcn_display_name:
+        type: string
+        required: true
+        title: 
+        description:
+
+      spoke01_subnet_priv01_cidr_block:
+        type: string
+        required: true
+        title: 
+        description:
+
+      spoke01_subnet_priv01_display_name:
+        type: string
+        required: true
+        title: 
+        description:
+
+      spoke02_vcn_cidr_block:
+        type: string
+        required: true
+        title: 
+        description:
+
+      spoke02_vcn_dns_label:
+        type: string
+        required: true
+        title: 
+        description:
+
+      spoke02_vcn_display_name:
+        type: string
+        required: true
+        title: 
+        description:
+        
+    spoke02_subnet_priv01_cidr_block:
+        type: string
+        required: true
+        title: 
+        description:
+        
+    spoke02_subnet_priv01_display_name:
+        type: string
+        required: true
+        title: 
+        description:
+        
+    instance_os:
+        type: string
+        required: true
+        title: 
+        description:
+
+    linux_os_version:
+        type: string
+        required: true
+        title: 
+        description:
+
+    NumInstances:
+        type: string
+        required: true
+        title: 
+        description:
+        
+    InstanceShape:
+        type: string
+        required: true
+        title: 
+        description:
