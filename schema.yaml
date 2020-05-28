@@ -48,7 +48,6 @@
 
       compartment_ocid:
         type: oci:identity:compartment:id
-        # type: string
         required: true
         title: Compartment
         description: Compartment where you want to create the solution resources
