@@ -8,3 +8,4 @@
 *.bak
 .DS_Store
 output.tf
+test.zip
