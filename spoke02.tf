@@ -34,28 +34,28 @@ output "vcn_id_spoke02" {
   value = oci_core_vcn.spoke02.id
 }
 
-resource "oci_core_instance" "spoke02_test_instance" {
-  availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]
-  compartment_id = var.compartment_ocid
-  display_name = "spoke02_test_instance"
-  shape = var.InstanceShape
+# resource "oci_core_instance" "spoke02_test_instance" {
+#   availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]
+#   compartment_id = var.compartment_ocid
+#   display_name = "spoke02_test_instance"
+#   shape = var.InstanceShape
 
-  create_vnic_details {
-    subnet_id = oci_core_subnet.spoke02_subnet_priv01.id
-    display_name = "primaryvnic"
-    assign_public_ip = false
-  }
+#   create_vnic_details {
+#     subnet_id = oci_core_subnet.spoke02_subnet_priv01.id
+#     display_name = "primaryvnic"
+#     assign_public_ip = false
+#   }
 
-  source_details {
-    source_type             = "image"
-    source_id               = data.oci_core_images.InstanceImageOCID.images[0].id
-    boot_volume_size_in_gbs = "50"
-  }
+#   source_details {
+#     source_type             = "image"
+#     source_id               = data.oci_core_images.InstanceImageOCID.images[0].id
+#     boot_volume_size_in_gbs = "50"
+#   }
 
-  metadata = {
-    ssh_authorized_keys = var.ssh_public_key
-  }
-  # timeouts {
-  #   create = "60m"
-  # }
-}
+#   metadata = {
+#     ssh_authorized_keys = var.ssh_public_key
+#   }
+#   # timeouts {
+#   #   create = "60m"
+#   # }
+# }
