@@ -3,8 +3,8 @@
 
     title: "Create a HUB-spoke network in Oracle Cloud Infrastructure"
     stackDescription: Deploy a HUB-spoke network in Oracle Cloud Infrastructure
-    schemaVersion: 1.0.0
-    version: "202005281025"
+    schemaVersion: 1.1.0
+    version: "20190404"
     locale: "en"
 
     variableGroups:
