@@ -14,6 +14,7 @@
       - compartment_ocid
       - tenancy_ocid
       - region
+      - instance_os
 
     - title: Required Configuration
       visible: true  
@@ -40,7 +41,6 @@
     - title: Optional Configuration
       visible: true
       variables:      
-      - instance_os
       - linux_os_version
       - InstanceShape
     
@@ -59,10 +59,10 @@
         description: Region where you want to deploy the resources defined by this stack
 
       ssh_public_key:
-        type: string
+        type: oci:core:ssh:publickey
         required: true
-        title: SSH public key
-        description: Public key that will be used to SSH into the test instances
+        title: SSH public Key
+        description: Public key
 
       igw_display_name:
         type: string
@@ -159,3 +159,20 @@
         required: true
         title: Private Subnet Display Name
         description: Display name assigned to the private subnet in the Spoke 2 VCN
+      
+      InstanceShape:
+          type: oci:core:instanceshape:name
+          required: false
+          title: Instance Shape
+          description: A shape is a template that determines the number of CPUs, amount of memory, and other resources allocated to Bastion instance.
+          default: "VM.Standard.E2.1.Micro"
+          dependsOn:
+            compartmentId: ${compartment_ocid}
+
+      instance_os:
+        type: enum
+        title: "Image OS"
+        description: "The OS/image installed on the Bastion instance."
+        enum:
+          - "Oracle Linux"
+        required: false
