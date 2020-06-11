@@ -174,5 +174,5 @@
         title: "Image OS"
         description: "The OS/image installed on the Bastion instance."
         enum:
-          - "Oracle Linux"
+          - "Oracle Linux - Latest Image"
         required: false

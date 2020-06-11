@@ -66,16 +66,16 @@ variable "spoke02_subnet_priv01_display_name" {
   default = "spoke02_subnet_priv01"
 }
 
-# OS Images
-variable "instance_os" {
-  description = "Operating system for compute instances"
-  default     = "Oracle Linux"
-}
+# # OS Images
+# variable "instance_os" {
+#   description = "Operating system for compute instances"
+#   default     = "Oracle Linux"
+# }
 
-variable "linux_os_version" {
-  description = "Operating system version for all Linux instances"
-  default     = "7.7"
-}
+# # variable "linux_os_version" {
+# #   description = "Operating system version for all Linux instances"
+# #   default     = "7.7"
+# # }
 
 variable "InstanceShape" {
     default = "VM.Standard2.1"
