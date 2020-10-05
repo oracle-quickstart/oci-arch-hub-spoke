@@ -68,4 +68,4 @@ When you no longer need the deployment, you can run this command to destroy it:
 
 ## Reference Archirecture
 
-- [Setup a hub-and-spoke network topology](https://docs.oracle.com/en/solutions/hub-spoke-network/index.html)
+- [Set up a hub-and-spoke network topology](https://docs.oracle.com/en/solutions/hub-spoke-network/index.html)
