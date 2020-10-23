@@ -61,11 +61,11 @@ When you no longer need the deployment, you can run this command to destroy it:
 
     terraform destroy
 
-## Hub spoke Architecture
+## Hub-Spoke Architecture Diagram
 
 ![](./images/hub-spoke-diagram.png)
 
 
-## Reference Archirecture
+## Reference Architecture
 
 - [Set up a hub-and-spoke network topology](https://docs.oracle.com/en/solutions/hub-spoke-network/index.html)
