@@ -85,3 +85,7 @@ resource "oci_core_instance" "bastion_instance" {
   #   create = "60m"
   # }
 }
+
+output "bastion_public_ip" {
+  value = oci_core_instance.bastion_instance.*.public_ip
+}
