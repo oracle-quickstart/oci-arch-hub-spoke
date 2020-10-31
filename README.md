@@ -2,35 +2,17 @@
 
 A hub-and-spoke network (often called star topology) has a central component (the hub) that's connected to multiple networks around it, like a wheel. Implementing this topology in the traditional data center can be costly. But in the Oracle Cloud, there’s no extra cost.
 
-- [Architecture](#architecture)
-- [Prerequisites](#prerequisites)
-- [Deploy Using Oracle Resource Manager](#deploy-using-oracle-resource-manager)
-- [Deploy Using the Terraform CLI](#deploy-using-the-terraform-cli)
-- [Architecture Diagram](#architecture-diagram)
-
 ## Architecture
 
 See [_Set up a hub-and-spoke network topology_](https://docs.oracle.com/en/solutions/hub-spoke-network/index.html).
 
 ## Prerequisites
 
-- Permission to `manage` the following types of resources in your Oracle Cloud Infrastructure tenancy:
-
-    - `vcns`
-    - `internet-gateways`
-    - `route-tables`
-    - `security-lists`
-    - `local-peering-gateways`
-    - `subnets`
-    - `instances`
-
+- Permission to `manage` the following types of resources in your Oracle Cloud Infrastructure tenancy: `vcns`, `internet-gateways`, `route-tables`, `security-lists`, `local-peering-gateways`, `subnets`, and `instances`.
+    
     If you don't have the required permissions or aren't sure, contact your tenancy administrator. For more information, see the [Policy Reference](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Reference/policyreference.htm) documentation.
 
-- Quota to create the following resources:
-
-    - VCNs: 3
-    - Subnets: 3
-    - Compute: 1
+- Quota to create the following resources: 3 VCNS, 3 subnets, and 1 compute instance.
 
     If you don't have the required quota, contact the tenancy or compartment administrator. For more information, see the [Service Limits](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm) and [Compartment Quotas](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcequotas.htm) documentation.
 
