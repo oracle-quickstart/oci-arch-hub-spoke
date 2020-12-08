@@ -11,7 +11,6 @@
     - title: General Configuration
       visible: false
       variables:
-      - compartment_ocid
       - tenancy_ocid
       - region
       - instance_os
@@ -19,6 +18,7 @@
     - title: Required Configuration
       visible: true  
       variables:
+      - compartment_ocid
       - ssh_public_key
       - igw_display_name
       - hub_vcn_display_name
