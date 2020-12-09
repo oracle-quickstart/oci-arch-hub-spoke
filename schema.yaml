@@ -11,7 +11,6 @@
     - title: General Configuration
       visible: false
       variables:
-      - compartment_ocid
       - tenancy_ocid
       - region
       - instance_os
@@ -19,6 +18,7 @@
     - title: Required Configuration
       visible: true  
       variables:
+      - compartment_ocid
       - ssh_public_key
       - igw_display_name
       - hub_vcn_display_name
@@ -67,8 +67,8 @@
       igw_display_name:
         type: string
         required: true
-        title: IGW Name
-        description: Display name of the Internet Gateway from the HUB VCN
+        title: Internet Gateway Name
+        description: Display name of the Internet Gateway of the HUB VCN
 
       hub_vcn_cidr_block:
         type: string
@@ -85,19 +85,19 @@
       hub_vcn_display_name:
         type: string
         required: true
-        title: VNC Name
+        title: VCN Name
         description: Display name assigned to the HUB VCN
 
       hub_subnet_pub01_cidr_block:
         type: string
         required: true
-        title: PUB Subnet CIDR Block
+        title: Public Subnet CIDR Block
         description: CIDR block that will be assigned to the Public Subnet in the HUB VCN
 
       hub_subnet_pub01_display_name:
         type: string
         required: true
-        title: PUB Subnet Display Name  
+        title: Public Subnet Display Name  
         description: Display name assigned to the Public subnet in the HUB VCN
 
       spoke01_vcn_cidr_block:
@@ -172,7 +172,7 @@
       instance_os:
         type: enum
         title: "Image OS"
-        description: "The OS/image installed on the Bastion instance."
+        description: "The OS/image to be installed on the Bastion instance."
         enum:
           - "Oracle Linux - Latest Image"
         required: false
