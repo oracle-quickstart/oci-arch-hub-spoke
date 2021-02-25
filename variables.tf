@@ -2,11 +2,17 @@
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
 variable "region" {}
-# variable "fingerprint" {}
-# variable "user_ocid" {}
+variable "fingerprint" {}
+variable "user_ocid" {}
 variable "tenancy_ocid" {}
 variable "compartment_ocid" {}
-variable "ssh_public_key" {}
+variable "private_key_path" {}
+variable "availablity_domain_name" {}
+
+variable "release" {
+  description = "Reference Architecture Release (OCI Architecture Center)"
+  default     = "1.0"
+}
 
 variable "igw_display_name" {
   default = "internet-gateway"
