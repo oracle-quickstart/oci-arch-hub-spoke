@@ -187,3 +187,12 @@
         enum:
           - "Oracle Linux - Latest Image"
         required: false
+
+    outputs:
+      
+      generated_ssh_private_key:
+        title: "Generated SSH Private Key"
+        displayText: "Generated SSH Private Key"
+        type: copyableString
+        visible: true
+

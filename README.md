@@ -14,7 +14,7 @@ If you don't have the required permissions and quota, contact your tenancy admin
 
 ## Deploy Using Oracle Resource Manager
 
-1. Click [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-quickstart/oci-arch-hub-spoke/raw/master/resource-manager/oci-arch-hub-spoke-stack-latest.zip)
+1. Click [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/oracle-quickstart/oci-arch-hub-spoke/releases/latest/download/oci-arch-hub-spoke-stack-latest.zip)
 
     If you aren't already signed in, when prompted, enter the tenancy and user credentials.
 
@@ -54,11 +54,11 @@ user_ocid            = "<user_ocid>"
 fingerprint          = "<finger_print>"
 private_key_path     = "<pem_private_key_path>"
 
-# SSH Keys
-ssh_public_key  = "<public_ssh_key_path>"
-
 # Region
 region = "<oci_region>"
+
+# Availablity Domain 
+availablity_domain_name = "<availablity_domain_name>"
 
 # Compartment
 compartment_ocid = "<compartment_ocid>"
