@@ -1,3 +1,6 @@
+## Copyright © 2020, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+
 output "bastion_public_ip" {
   value = oci_core_instance.bastion_instance.*.public_ip
 }

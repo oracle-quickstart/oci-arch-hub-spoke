@@ -8,6 +8,7 @@ resource "oci_core_vcn" "spoke01" {
   display_name   = var.spoke01_vcn_display_name
   defined_tags = {"${oci_identity_tag_namespace.ArchitectureCenterTagNamespace.name}.${oci_identity_tag.ArchitectureCenterTag.name}" = var.release }
 }
+
 #LPG Spoke-HUB
 resource "oci_core_local_peering_gateway" "spoke01_hub_local_peering_gateway" {
     compartment_id = var.compartment_ocid
@@ -33,30 +34,3 @@ resource "oci_core_subnet" "spoke01_subnet_priv01" {
     display_name = var.spoke01_subnet_priv01_display_name
     defined_tags = {"${oci_identity_tag_namespace.ArchitectureCenterTagNamespace.name}.${oci_identity_tag.ArchitectureCenterTag.name}" = var.release }
 }
-
-
-# resource "oci_core_instance" "spoke01_test_instance" {
-#   availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]
-#   compartment_id = var.compartment_ocid
-#   display_name = "spoke01_test_instance"
-#   shape = var.InstanceShape
-
-#   create_vnic_details {
-#     subnet_id = oci_core_subnet.spoke01_subnet_priv01.id
-#     display_name = "primaryvnic"
-#     assign_public_ip = false
-#   }
-
-#   source_details {
-#     source_type             = "image"
-#     source_id               = data.oci_core_images.InstanceImageOCID.images[0].id
-#     boot_volume_size_in_gbs = "50"
-#   }
-
-#   metadata = {
-#     ssh_authorized_keys = var.ssh_public_key
-#   }
-#   # timeouts {
-#   #   create = "60m"
-#   # }
-# }
